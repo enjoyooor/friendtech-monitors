@@ -48,6 +48,12 @@ npx prisma migrate dev
 npx prisma db push
 ```
 
+## Screenshots
+Here's an example Discord notification.
+
+<img width="300" alt="Screenshot 2023-10-10 at 9 25 12 PM" src="https://github.com/bholuhacks/friendtech-monitors/assets/147568088/7de50f08-0a86-461b-abb3-976db4aee29b">
+
+
 ### Credits
 
 I'm very much a beginning at all things TypeScript/Blockchain. [Anish Agnihotri's friendmex](https://github.com/Anish-Agnihotri/friendmex) was a good starting point for another project I worked on before this one. I gained enough experience to start creating more complicated systems.
