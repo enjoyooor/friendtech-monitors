@@ -51,8 +51,7 @@ npx prisma db push
 ## Screenshots
 Here's an example Discord notification.
 
-<img width="300" alt="Screenshot 2023-10-10 at 9 25 12 PM" src="https://github.com/bholuhacks/friendtech-monitors/assets/147568088/7de50f08-0a86-461b-abb3-976db4aee29b">
-
+<img width="300" alt="Screenshot 2023-10-10 at 9 28 34 PM" src="https://github.com/bholuhacks/friendtech-monitors/assets/147568088/3851224c-6d38-4b1d-84c9-e2bb347abe51">
 
 ### Credits
 
