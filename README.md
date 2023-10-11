@@ -1,12 +1,14 @@
 # Friend.Tech Monitors
 
-Everyone's been making Friend Tech (FT) monitors from scratch, so I made one too. I decided to open-source the core of what I think is a reasonably robust system to bootstrap your FT tooling development. I use this on-and-off when I am active, and the pings are
+Everyone's been making Friend Tech (FT) monitors from scratch, so I made one too. I decided to open-source the core of what I think is a reasonably robust system to bootstrap your FT tooling development. I use this on-and-off when I am active, and the pings are as fast as, if not milliseconds faster, the next FT monitor.
+
+I spent a lot of time fine-tuning and coming up with a reliable way to backfill all users. I believe people can create (and have been creating) cool monitors or ecosystem tooling if they have access to more signals, such as their public Twitter data, balances/tx history of funding wallets, etc.
 
 ### Summary
 
-- Uses `/users/by-id/:id` FT API to store all existing users
+- Uses `/users/by-id/:id` FT API to incrementally get new users
 - Leverages Twitter API v1.1 to bulk fetch user data
-- Sends new sign-up and first-key buy notifications via Discord webhooks
+- Optionally sends new sign-up and first-key buy notifications via Discord webhooks
 
 ### Important Files
 
@@ -21,6 +23,8 @@ Everyone's been making Friend Tech (FT) monitors from scratch, so I made one too
 cp .env.sample .env && vim .env
 
 # Update additional config
+# This file is heavily documented and is worth reading in
+# its entirety before you move further
 vim src/utils/constants.ts
 
 # Install dependencies
@@ -44,6 +48,8 @@ npx prisma migrate dev
 npx prisma db push
 ```
 
-## Credits
+### Credits
 
-I'm very much a beginner at all things TypeScript/Blockchain dev. [Anish Agnihotri's friendmex](https://github.com/Anish-Agnihotri/friendmex) was a starting point for another project I worked on before this one, which gave me enough experience to start adding more complicated features.
+I'm very much a beginning at all things TypeScript/Blockchain. [Anish Agnihotri's friendmex](https://github.com/Anish-Agnihotri/friendmex) was a good starting point for another project I worked on before this one. I gained enough experience to start creating more complicated systems.
+
+Also thanks to [@\_GvAll](https://twitter.com/_GvAll) and [@DukeOfWapping](https://twitter.com/DukeOfWapping) for bouncing ideas.

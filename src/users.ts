@@ -136,16 +136,6 @@ export default class User {
   logAxiosError(error: any) {
     logger.error(error.code);
     logger.error(error.stack);
-    // if (error.response) {
-    //   logger.error("Error Data:", error.response.data);
-    //   logger.error("Error Status:", error.response.status);
-    //   logger.error("Error Headers:", error.response.headers);
-    // } else if (error.request) {
-    //   logger.error("Error Request:", error.request);
-    // } else {
-    //   logger.error("Error Message:", error.message);
-    // }
-    // logger.error("Error Config:", error.config);
   }
 
   async shouldRunBackfill() {
@@ -203,6 +193,31 @@ export default class User {
     }
   }
 
+  async getManyUsers(startUserId: number, batchSize: number) {
+    const promises = [];
+    for (let i = 0; i < batchSize; i++) {
+      const userId = startUserId + i;
+      promises.push(this.getUser(userId));
+    }
+    await Promise.all(promises);
+  }
+
+  async getUsersInBatch(batchSize: number = 25) {
+    let latestUserId = await this.getSyncedUserId();
+
+    // loop indefinitely
+    while (true) {
+      await this.getManyUsers(latestUserId, batchSize);
+
+      // Update latestUserId after processing a batch
+      latestUserId += batchSize;
+      await setLatestUserId(latestUserId);
+
+      logger.info(`Synced users until ${latestUserId - 1}, sleeping for 5s`);
+      await sleep(1000 * 5);
+    }
+  }
+
   async getUsers() {
     if (await this.shouldRunBackfill()) {
       await this.runBackfill();
@@ -228,31 +243,6 @@ export default class User {
         // when no user is found, take a longer break
         await sleep(1000);
       }
-    }
-  }
-
-  async getManyUsers(startUserId: number, batchSize: number) {
-    const promises = [];
-    for (let i = 0; i < batchSize; i++) {
-      const userId = startUserId + i;
-      promises.push(this.getUser(userId));
-    }
-    await Promise.all(promises);
-  }
-
-  async getUsersInBatch(batchSize: number = 25) {
-    let latestUserId = await this.getSyncedUserId();
-
-    // loop indefinitely
-    while (true) {
-      await this.getManyUsers(latestUserId, batchSize);
-
-      // Update latestUserId after processing a batch
-      latestUserId += batchSize;
-      await setLatestUserId(latestUserId);
-
-      logger.info(`Synced users until ${latestUserId - 1}, sleeping for 5s`);
-      await sleep(1000 * 5);
     }
   }
 
