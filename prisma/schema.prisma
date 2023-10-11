@@ -1,0 +1,27 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_PRISMA_URL") // uses connection pooling
+  directUrl = env("DATABASE_URL_NON_POOLING") // uses a direct connection
+}
+
+model User {
+  id                 Int       @id @unique
+  address            String
+  twitterUsername    String
+  twitterPfpUrl      String?
+  twitterApiUsed     Boolean   @default(false)
+  twitterApiSyncedAt DateTime?
+  twitterApiResponse Json?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  @@index([twitterApiUsed])
+  @@index([address])
+}
