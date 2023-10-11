@@ -57,7 +57,7 @@ Here's an example Discord notification.
 
 ### Credits
 
-I'm very much a beginning at all things TypeScript/Blockchain. [Anish Agnihotri's friendmex](https://github.com/Anish-Agnihotri/friendmex) was a good starting point for another project I worked on before this one. I gained enough experience to start creating more complicated systems.
+I'm very much a beginner at all things TypeScript/Blockchain. [Anish Agnihotri's friendmex](https://github.com/Anish-Agnihotri/friendmex) was a good starting point for another project I had worked on before this one. I gained invaluable experience to start creating more complicated systems.
 
 Also thanks to [@\_GvAll](https://twitter.com/_GvAll) and [@DukeOfWapping](https://twitter.com/DukeOfWapping) for bouncing ideas.
 
