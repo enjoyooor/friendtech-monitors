@@ -34,7 +34,7 @@ pnpm install
 pnpm run build && pnpm run start
 ```
 
-## Dependencies
+### Dependencies
 
 - Setup [PostgreSQL](https://www.postgresql.org/) for persistence
 - Setup [Redis](https://redis.io/) for caching
@@ -48,13 +48,19 @@ npx prisma migrate dev
 npx prisma db push
 ```
 
-## Screenshots
+### Screenshots
 Here's an example Discord notification.
 
 <img width="300" alt="Screenshot 2023-10-10 at 9 28 34 PM" src="https://github.com/bholuhacks/friendtech-monitors/assets/147568088/3851224c-6d38-4b1d-84c9-e2bb347abe51">
+
+---
 
 ### Credits
 
 I'm very much a beginning at all things TypeScript/Blockchain. [Anish Agnihotri's friendmex](https://github.com/Anish-Agnihotri/friendmex) was a good starting point for another project I worked on before this one. I gained enough experience to start creating more complicated systems.
 
 Also thanks to [@\_GvAll](https://twitter.com/_GvAll) and [@DukeOfWapping](https://twitter.com/DukeOfWapping) for bouncing ideas.
+
+### Author
+
+`bholu.eth` - easy to find 🫡
